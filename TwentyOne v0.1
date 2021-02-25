@@ -1,0 +1,54 @@
+import time
+import random
+
+print('Игра в очко. Надеюсь, правила объяснять не нужно.')
+time.sleep(1)
+#
+kol = [3, 4, 5, 6, 7, 8, 9, 10, 11]  # колода
+game = 0
+# играет комп
+while (game != 'n'):
+    rk = 0  # рука_компа
+    ii = 0 #счетчик карт компа
+    ri = 0  # рука_игрока
+    b = 0
+    while(rk<12):
+        b = random.choice(kol)
+        rk = rk + b
+        ii = ii+1
+    b =random.choice(kol)
+    rk = rk+b
+    ii=ii+1
+    print('Комп набрал '+str(ii)+' карт. Теперь ты')
+    # играешь ты
+    more = 0
+    while more!='n':
+        b = random.choice(kol)
+        ri = ri + b
+        if b==3 :
+            print ('Выпал валет. Всего '+str(ri)+' очков.')
+        elif b==4 :
+            print ('Выпала дама. Всего '+str(ri)+' очков.')
+        elif b==5 :
+            print ('Выпал король. Всего '+str(ri)+' очков.')
+        elif b==11:
+            print ('Выпал туз. Всего '+str(ri)+' очков.')
+        else:
+            print ('Выпало '+str(b)+'. Всего '+str(ri)+' очков.')
+        print('Ещё (y/n)?')
+        more=str(input())
+        if more=='n': break
+    print('Комп вскрывается... У него '+str(rk)+' очков.')
+    if rk==21: print ('Очко!')
+    elif rk>21: print ('Перебор!')
+    time.sleep(1)
+    print('Что там у тебя?.. У тебя '+str(ri)+' очков.')
+    if ri==21: print ('Очко!')
+    elif ri>21: print ('Перебор!')
+    if ri<22 and rk<22 and ri==rk: print('Ничья.')
+    elif (ri<22 and rk<22 and ri>rk) or (rk>21 and ri<22): print('Ты выиграл. Возьми с полки пирожок.')
+    elif (ri<22 and rk<22 and ri<rk) or (ri>21 and rk<22): print('Комп выиграл. Сорри.')
+    else: print ('Оба проиграли, волки позорные')
+    print ('Заново (y/n)?')
+    game=str(input())
+    if game=='n': break
