@@ -1,6 +1,5 @@
 import time
 import random
-
 print('Игра в очко. Надеюсь, правила объяснять не нужно.')
 time.sleep(1)
 #
@@ -51,7 +50,7 @@ while (game != 'n'):
     if ri<22 and rk<22 and ri==rk: print('Ничья.')
     elif (ri<22 and rk<22 and ri>rk) or (rk>21 and ri<22): print('Ты выиграл. Возьми с полки пирожок.')
     elif (ri<22 and rk<22 and ri<rk) or (ri>21 and rk<22): print('Комп выиграл. Сорри.')
-    else: print ('Оба проиграли, волки позорные')
+    else: print ('Оба проиграли.')
     print ('Заново (y/n)?')
     while 1:
         game=str(input())
